@@ -339,7 +339,7 @@ const Transactions = () => {
             </p>
           </div>
         ) : (
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto table-container">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-hairline">

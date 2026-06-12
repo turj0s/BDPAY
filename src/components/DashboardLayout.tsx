@@ -1,4 +1,5 @@
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import { 
   LayoutDashboard, 
   Receipt, 
@@ -8,7 +9,9 @@ import {
   Users, 
   Settings,
   LogOut,
-  BarChart3
+  BarChart3,
+  Menu,
+  X
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -16,6 +19,7 @@ const DashboardLayout = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const { user, signOut } = useAuth()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   
   const isActive = (path: string) => {
     return location.pathname === path
@@ -28,6 +32,10 @@ const DashboardLayout = () => {
     } catch (error) {
       console.error('Error signing out:', error)
     }
+  }
+  
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false)
   }
   
   const navItems = [
@@ -43,10 +51,27 @@ const DashboardLayout = () => {
   
   return (
     <div className="flex min-h-screen bg-canvas-soft">
+      {/* Mobile Menu Toggle */}
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="mobile-nav-toggle md:hidden"
+        aria-label="Toggle menu"
+      >
+        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* Mobile Overlay */}
+      <div 
+        className={`mobile-overlay md:hidden ${mobileMenuOpen ? 'active' : ''}`}
+        onClick={closeMobileMenu}
+      />
+
       {/* Sidebar */}
-      <aside className="w-64 bg-brand-dark text-white flex-shrink-0 fixed h-full">
+      <aside className={`dashboard-sidebar w-64 bg-brand-dark text-white flex-shrink-0 fixed h-full md:static ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="p-6">
-          <Link to="/" className="text-2xl font-light block mb-12">BDPay</Link>
+          <Link to="/" className="text-2xl font-light block mb-12" onClick={closeMobileMenu}>
+            BDPay
+          </Link>
           
           <nav className="space-y-1">
             {navItems.map((item) => {
@@ -57,6 +82,7 @@ const DashboardLayout = () => {
                 <Link
                   key={item.path}
                   to={item.path}
+                  onClick={closeMobileMenu}
                   className={`flex items-center gap-3 px-4 py-3 rounded-md transition-colors ${
                     active 
                       ? 'bg-primary text-white border-l-4 border-primary-soft' 
@@ -89,7 +115,7 @@ const DashboardLayout = () => {
       </aside>
       
       {/* Main Content */}
-      <main className="flex-1 ml-64">
+      <main className="dashboard-main flex-1 md:ml-64">
         <div className="p-8">
           <Outlet />
         </div>

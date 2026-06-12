@@ -1,10 +1,13 @@
-import { TrendingUp, Clock, CheckCircle, Activity } from 'lucide-react'
+import { TrendingUp, Clock, CheckCircle, Activity, Wifi, WifiOff } from 'lucide-react'
+import { useRealtime } from '../../contexts/RealtimeContext'
 
 const Dashboard = () => {
+  const { isConnected, pendingCount: realtimePendingCount } = useRealtime()
+  
   // Mock data
   const stats = [
     { label: "Today's Volume", value: '৳45,230.00', icon: TrendingUp, color: 'text-primary' },
-    { label: 'Pending Verifications', value: '3', icon: Clock, color: 'text-yellow-600', badge: true },
+    { label: 'Pending Verifications', value: realtimePendingCount.toString(), icon: Clock, color: 'text-yellow-600', badge: realtimePendingCount > 0 },
     { label: 'Approval Rate', value: '94.2%', icon: CheckCircle, color: 'text-green-600' },
     { label: 'Total Transactions', value: '1,247', icon: Activity, color: 'text-blue-600' },
   ]
@@ -32,9 +35,24 @@ const Dashboard = () => {
   
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="display-lg mb-2">Overview</h1>
-        <p className="body-md text-ink-mute">Your payment dashboard at a glance</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="display-lg mb-2">Overview</h1>
+          <p className="body-md text-ink-mute">Your payment dashboard at a glance</p>
+        </div>
+        <div className={`flex items-center gap-2 px-3 py-1.5 rounded-pill ${isConnected ? 'bg-green-50' : 'bg-gray-50'}`}>
+          {isConnected ? (
+            <>
+              <Wifi size={16} className="text-green-600" />
+              <span className="caption text-green-700">Live</span>
+            </>
+          ) : (
+            <>
+              <WifiOff size={16} className="text-gray-500" />
+              <span className="caption text-gray-600">Offline</span>
+            </>
+          )}
+        </div>
       </div>
       
       {/* Stats Grid */}
