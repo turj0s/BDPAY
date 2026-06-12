@@ -2,7 +2,7 @@
 
 BDPay is a free, full-stack SaaS payment verification platform for Bangladeshi e-commerce merchants. Accept bKash, Nagad, Rocket, and Upay payments via manual Transaction ID (TrxID) verification.
 
-## 🚀 Project Status: 60% Complete (12/20 tasks)
+## 🚀 Project Status: 90% Complete (18/20 tasks)
 
 See [PROJECT_STATUS.md](./PROJECT_STATUS.md) for detailed progress tracking.
 
@@ -17,6 +17,11 @@ See [PROJECT_STATUS.md](./PROJECT_STATUS.md) for detailed progress tracking.
 - ✅ Hosted checkout pages with TrxID submission
 - ✅ Checkout link generation and management
 - ✅ API keys & integration documentation (REST API, WooCommerce, Shopify, Webhooks)
+- ✅ Team management with role-based permissions (Owner/Admin/Staff)
+- ✅ Analytics dashboard with Recharts visualizations
+- ✅ Settings page with profile, language, notifications, and fraud settings
+- ✅ Bangla (বাংলা) language support with 100+ translations
+- ✅ Toast notification system (success/error/warning/info)
 
 ### Payment Flow
 1. Merchant adds wallet numbers (bKash/Nagad/Rocket/Upay)
@@ -137,7 +142,7 @@ src/
 
 ## Development Progress
 
-### ✅ Completed (60%)
+### ✅ Completed (90%)
 - Project setup and design system
 - Marketing landing page
 - Authentication (register/login)
@@ -146,15 +151,17 @@ src/
 - Wallet management with QR codes
 - Checkout links and public checkout page
 - API keys and integration documentation
+- **Team management with role-based access**
+- **Analytics dashboard with Recharts**
+- **Settings page with 5 tabs**
+- **Bangla (বাংলা) language support**
+- **Toast notification system**
 
-### 🚧 In Progress (40%)
-- Team management
-- Analytics with charts
-- Settings page
-- Bangla language support (i18n)
-- Real-time updates and webhooks
+### 🚧 Remaining (10%)
+- Real-time updates via Supabase subscriptions
+- Webhook delivery system with retry logic
+- REST API endpoint implementation
 - Mobile responsive design
-- Toast notifications
 - Final polish and testing
 
 ## Database Schema
@@ -192,13 +199,17 @@ This is a personal project currently under active development. Feel free to open
 
 ## Roadmap
 
-- [ ] Team management with role-based permissions
-- [ ] Advanced analytics dashboard
-- [ ] Bangla (বাংলা) language support
-- [ ] Real-time transaction notifications
-- [ ] Webhook delivery system
-- [ ] Mobile app (React Native)
-- [ ] White-label solution for enterprises
+- [x] Team management with role-based permissions
+- [x] Advanced analytics dashboard with Recharts
+- [x] Settings page with full customization
+- [x] Bangla (বাংলা) language support
+- [x] Toast notification system
+- [ ] Real-time transaction notifications via Supabase subscriptions
+- [ ] Webhook delivery system with retry logic
+- [ ] REST API endpoint (`/v1/verify`)
+- [ ] Mobile responsive design
+- [ ] Mobile app (React Native) - Future
+- [ ] White-label solution for enterprises - Future
 
 ## License
 

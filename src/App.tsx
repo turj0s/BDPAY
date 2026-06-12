@@ -9,6 +9,9 @@ import Transactions from './pages/dashboard/Transactions'
 import Wallets from './pages/dashboard/Wallets'
 import CheckoutLinks from './pages/dashboard/CheckoutLinks'
 import APIKeys from './pages/dashboard/APIKeys'
+import Team from './pages/dashboard/Team'
+import Analytics from './pages/dashboard/Analytics'
+import Settings from './pages/dashboard/Settings'
 import DashboardLayout from './components/DashboardLayout'
 
 function App() {
@@ -34,6 +37,9 @@ function App() {
         <Route path="wallets" element={<Wallets />} />
         <Route path="checkout" element={<CheckoutLinks />} />
         <Route path="api" element={<APIKeys />} />
+        <Route path="team" element={<Team />} />
+        <Route path="analytics" element={<Analytics />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
     </Routes>
   )

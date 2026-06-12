@@ -7,7 +7,8 @@ import {
   Key, 
   Users, 
   Settings,
-  LogOut
+  LogOut,
+  BarChart3
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -36,6 +37,7 @@ const DashboardLayout = () => {
     { path: '/dashboard/checkout', label: 'Checkout Links', icon: LinkIcon },
     { path: '/dashboard/api', label: 'API Keys', icon: Key },
     { path: '/dashboard/team', label: 'Team', icon: Users },
+    { path: '/dashboard/analytics', label: 'Analytics', icon: BarChart3 },
     { path: '/dashboard/settings', label: 'Settings', icon: Settings },
   ]
   
