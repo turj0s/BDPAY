@@ -1,0 +1,55 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: 'var(--color-primary)',
+        'primary-deep': 'var(--color-primary-deep)',
+        'primary-press': 'var(--color-primary-press)',
+        'primary-soft': 'var(--color-primary-soft)',
+        'primary-bg-subdued': 'var(--color-primary-bg-subdued)',
+        'brand-dark': 'var(--color-brand-dark)',
+        ink: 'var(--color-ink)',
+        'ink-secondary': 'var(--color-ink-secondary)',
+        'ink-mute': 'var(--color-ink-mute)',
+        'ink-mute-2': 'var(--color-ink-mute-2)',
+        'on-primary': 'var(--color-on-primary)',
+        canvas: 'var(--color-canvas)',
+        'canvas-soft': 'var(--color-canvas-soft)',
+        'canvas-cream': 'var(--color-canvas-cream)',
+        hairline: 'var(--color-hairline)',
+        'hairline-input': 'var(--color-hairline-input)',
+        ruby: 'var(--color-ruby)',
+        magenta: 'var(--color-magenta)',
+        lemon: 'var(--color-lemon)',
+        'shadow-blue': 'var(--color-shadow-blue)',
+      },
+      borderRadius: {
+        'xs': 'var(--radius-xs)',
+        'sm': 'var(--radius-sm)',
+        'md': 'var(--radius-md)',
+        'lg': 'var(--radius-lg)',
+        'xl': 'var(--radius-xl)',
+        'pill': 'var(--radius-pill)',
+      },
+      spacing: {
+        'xxs': 'var(--space-xxs)',
+        'xs': 'var(--space-xs)',
+        'sm': 'var(--space-sm)',
+        'md': 'var(--space-md)',
+        'lg': 'var(--space-lg)',
+        'xl': 'var(--space-xl)',
+        'xxl': 'var(--space-xxl)',
+        'huge': 'var(--space-huge)',
+      },
+      fontFamily: {
+        sans: ['Inter', 'SF Pro Display', 'system-ui', '-apple-system', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+}
